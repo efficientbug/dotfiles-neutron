@@ -1,0 +1,69 @@
+# Core settings
+[core]
+    editor = nvim
+
+# Avoid trying to guess defaults for `user.name` and `user.email`
+[user]
+    useConfigOnly = true
+
+# Set better push defaults
+[push]
+    default = current
+    followTags
+
+# Colorize output of tools only when written to the terminal
+[color]
+    ui = auto
+    diff = auto
+    branch = auto
+
+# Set the diff tool to use with git difftool, overrides `merge.tool`
+[diff]
+    tool = meld
+
+# Do not prompt before invoking the diff tool
+[difftool]
+    prompt = false
+
+# Relative dates for log (e.g. 3 days ago)
+[log]
+    date = relative
+
+# Aliases
+[alias]
+    s = status -sbu
+    st = status
+    c = commit
+    p = push
+    b = branch
+    co = checkout
+
+    # Unstages files
+    unstage = reset HEAD --
+
+    # Rewinds the last commit keeping changes
+    uncommit = reset --soft HEAD~
+
+    # Rewinds the last commit discarding changes
+    hardreset = reset --hard HEAD~
+
+# Caching passwords
+# TODO remove this in favor of using SSH keys for authentication
+[credential]
+    helper = cache --timeout=7200
+
+# Colors
+[include]
+    path = .gitconfig.dracula
+
+# Local use configuration and credentials
+[include]
+    path = .gitconfig.local
+
+# Development use configuration and credentials
+[includeIf "gitdir:~/dev/"]
+    path = .gitconfig.dev
+
+# Personal use configuration and credentials
+[includeIf "gitdir:~/git/"]
+    path = .gitconfig.personal
