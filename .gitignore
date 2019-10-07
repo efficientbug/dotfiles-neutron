@@ -1,0 +1,6 @@
+**/mpv/watch_later
+
+# Files with credentials
+**/git/.gitconfig.dev
+**/git/.gitconfig.local
+**/git/.gitconfig.personal
